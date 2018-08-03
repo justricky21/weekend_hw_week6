@@ -1,30 +1,20 @@
 package Hotel.RoomType;
 
-
-import Hotel.AbstractAndEnums.ConferenceRoomType;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 public class DiningRoomTest {
-    ConferenceRoom room101;
+    DiningRoom room202;
 
     @Before
     public void before(){
-        room101 = new ConferenceRoom(ConferenceRoomType.RUBY);
+        room202 = new DiningRoom(8);
     }
 
     @Test
-    public void bedroomHasCapacity(){
-        assertEquals(14, room101.getCapacity());
-    }
-    @Test
-    public void bedroomHasType(){
-        assertEquals("Ruby", room101.getReadableType());
-    }
-    @Test
-    public void bedroomHasRate(){
-        assertEquals(80, room101.getRate());
+    public void roomHasCapacity(){
+        assertEquals(8, room202.getCapacity());
     }
 }
