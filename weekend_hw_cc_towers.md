@@ -12,7 +12,7 @@ Each room will have at least a capacity and a collection of guests.
 
 2. Create different types of rooms which inherit from the Room superclass and have properties/methods of their own,
 
-  - Bedroom which have a room number, a type e.g. Single/Double and nightly rate.
+  - RoomTypes.Bedroom which have a room number, a type e.g. Single/Double and nightly rate.
 
   (___HINT___ you may wish to use an enum for the bedroom types with each entry having a value for the room capacity)
 
