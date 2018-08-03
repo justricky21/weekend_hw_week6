@@ -12,7 +12,7 @@ public class BedroomTest {
 
     @Before
     public void before(){
-        room404 = new Bedroom(BedroomType.SILVER);
+        room404 = new Bedroom(BedroomType.SILVER, 404);
     }
 
     @Test
@@ -21,7 +21,7 @@ public class BedroomTest {
     }
     @Test
     public void bedroomHasType(){
-        assertEquals("Silver", room404.getReadableType());
+        assertEquals(BedroomType.SILVER, room404.getType());
     }
     @Test
     public void bedroomHasRate(){

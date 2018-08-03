@@ -11,7 +11,7 @@ public class ConferenceRoomTest {
 
     @Before
     public void before(){
-        room101 = new ConferenceRoom(ConferenceRoomType.RUBY);
+        room101 = new ConferenceRoom(ConferenceRoomType.RUBY, 101);
     }
 
     @Test

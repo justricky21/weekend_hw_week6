@@ -5,8 +5,8 @@ import Hotel.AbstractAndEnums.Room;
 public class DiningRoom extends Room {
 
 
-    public DiningRoom(int capacity) {
-        super(capacity);
+    public DiningRoom(int capacity, int roomNumber) {
+        super(capacity, roomNumber);
     }
 
 

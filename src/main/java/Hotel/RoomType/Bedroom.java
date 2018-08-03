@@ -6,8 +6,8 @@ import Hotel.AbstractAndEnums.Room;
 public class Bedroom extends Room {
 
     private BedroomType type;
-    public Bedroom(BedroomType type) {
-        super(type.getCapacity());
+    public Bedroom(BedroomType type, int roomNumber) {
+        super(type.getCapacity(), roomNumber);
         this.type = type;
     }
 
