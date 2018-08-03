@@ -40,4 +40,14 @@ public abstract class Room {
     public int getRoomNumber() {
         return roomNumber;
     }
+
+    public ArrayList<String> getGuestList(){
+        ArrayList<String> guestList = new ArrayList<>();
+        for (Guest guest : guests){
+            guestList.add(guest.getName());
+        }
+        return guestList;
+
+    }
+
 }

@@ -153,6 +153,13 @@ public class Hotel {
             }
         }
     }
-
+    public void signInToDiningRoom(Guest guest){
+        for (DiningRoom room : diningRooms){
+            if (room.getCapacity() > 0){
+                room.reduceCapacity();
+                room.getGuests().add(guest);
+            }
+        }
+    }
 
 }

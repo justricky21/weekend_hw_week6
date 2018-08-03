@@ -9,6 +9,8 @@ import Hotel.RoomType.DiningRoom;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 public class HotelTest {
@@ -24,13 +26,13 @@ public class HotelTest {
     Bedroom room104;
 
     @Before
-    public void before(){
+    public void before() {
         hotel = new Hotel();
-        room101 = new Bedroom(BedroomType.BRONZE,101);
-        room102 = new Bedroom(BedroomType.SILVER,102);
-        room104 = new Bedroom(BedroomType.SILVER,104);
+        room101 = new Bedroom(BedroomType.BRONZE, 101);
+        room102 = new Bedroom(BedroomType.SILVER, 102);
+        room104 = new Bedroom(BedroomType.SILVER, 104);
         room103 = new Bedroom(BedroomType.GOLD, 103);
-        room202 = new DiningRoom(8, 202);
+        room202 = new DiningRoom(32, 202);
         room302 = new ConferenceRoom(ConferenceRoomType.TOPAZ, 302);
         room303 = new ConferenceRoom(ConferenceRoomType.SAPPHIRE, 303);
         room304 = new ConferenceRoom(ConferenceRoomType.RUBY, 304);
@@ -42,11 +44,11 @@ public class HotelTest {
         hotel.addConferenceRoom(room303);
         hotel.addConferenceRoom(room302);
         hotel.addConferenceRoom(room304);
-        guest = new Guest();
+        guest = new Guest("Jerry");
     }
 
     @Test
-    public void hotelHasRooms(){
+    public void hotelHasRooms() {
         assertEquals(4, hotel.getBedrooms().size());
         assertEquals(3, hotel.getConferenceRooms().size());
         assertEquals(1, hotel.getDiningRooms().size());
@@ -84,7 +86,7 @@ public class HotelTest {
     public void hotelCanSignInGuestToBigBedroom() {
         int i = 0;
         while (i < 4) {
-            i ++;
+            i++;
             hotel.signInToGoldBedroom(guest);
         }
         assertEquals(4, room103.getGuests().size());
@@ -94,23 +96,25 @@ public class HotelTest {
     public void hotelCannotSignInGuestToFullBigBedroom() {
         int i = 0;
         while (i < 5) {
-            i ++;
+            i++;
             hotel.signInToGoldBedroom(guest);
         }
         assertEquals(4, room103.getGuests().size());
     }
+
     @Test
-    public void hotelIsAbsolutelyBananas(){
+    public void hotelIsAbsolutelyBananas() {
         int i = 0;
         while (i < 5) {
-            i ++;
+            i++;
             hotel.signInToGoldBedroom(guest);
         }
         assertEquals(4, room103.getGuests().size());
         assertEquals(0, room104.getGuests().size());
     }
+
     @Test
-    public void hotelBedroomsAreFull(){
+    public void hotelBedroomsAreFull() {
         hotel.signInToGoldBedroomOccupy(guest);
         hotel.signInToGoldBedroomOccupy(guest);
         hotel.signInToSilverBedroomOccupy(guest);
@@ -122,10 +126,10 @@ public class HotelTest {
     }
 
     @Test
-    public void hotelCanSignInGuestToTopazConferenceRoomUpToFullCapacity(){
+    public void hotelCanSignInGuestToTopazConferenceRoomUpToFullCapacity() {
         int i = 0;
-        while (i < 11){
-            i ++;
+        while (i < 11) {
+            i++;
             hotel.signInToTopazConferenceRoom(guest);
         }
         assertEquals(10, room302.getGuests().size());
@@ -135,25 +139,25 @@ public class HotelTest {
     @Test
     public void hotelCanSignInGuestRubyConferenceRoomUpToFullCapacity() {
         int i = 0;
-        while (i < 15){
-            i ++;
+        while (i < 15) {
+            i++;
             hotel.signInToRubyConferenceRoom(guest);
         }
         assertEquals(14, room304.getGuests().size());
     }
 
     @Test
-    public void hotelCanSignInGuestSapphireConferenceRommUpToFullCapacity(){
+    public void hotelCanSignInGuestSapphireConferenceRommUpToFullCapacity() {
         int i = 0;
-        while (i < 29){
-            i ++;
+        while (i < 29) {
+            i++;
             hotel.signInToSapphireConferenceRoom(guest);
         }
         assertEquals(28, room303.getGuests().size());
     }
 
     @Test
-    public void hotelConferenceRoomsAreFull(){
+    public void hotelConferenceRoomsAreFull() {
         hotel.signInToSapphireConferenceRoomOccupy(guest);
         hotel.signInToSapphireConferenceRoomOccupy(guest);
         hotel.signInToTopazConferenceRoomOccupy(guest);
@@ -164,4 +168,22 @@ public class HotelTest {
         assertEquals(1, room304.getGuests().size());
         assertEquals(1, room302.getGuests().size());
     }
+
+    @Test
+    public void hotelCanSingInGuestDiningRoomToFullCapacity() {
+        int i = 0;
+        while (i < 33) {
+            i++;
+            hotel.signInToDiningRoom(guest);
+        }
+        assertEquals(32, room202.getGuests().size());
+    }
+    @Test
+    public void canGetGuestList(){
+        ArrayList<String> guestListTest = new ArrayList<>();
+        guestListTest.add("Jerry");
+        hotel.signInToGoldBedroom(guest);
+        assertEquals(guestListTest, room103.getGuestList());
+    }
+
 }
