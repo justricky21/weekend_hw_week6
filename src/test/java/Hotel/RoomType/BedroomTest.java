@@ -1,7 +1,7 @@
 package Hotel.RoomType;
 
 
-import Hotel.Abstract.BedroomType;
+import Hotel.AbstractAndEnums.BedroomType;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,7 +16,15 @@ public class BedroomTest {
     }
 
     @Test
-    public void bedroomHasCApacity(){
+    public void bedroomHasCapacity(){
         assertEquals(2, room404.getCapacity());
+    }
+    @Test
+    public void bedroomHasType(){
+        assertEquals("Silver", room404.getReadableType());
+    }
+    @Test
+    public void bedroomHasRate(){
+        assertEquals(50, room404.getRate());
     }
 }

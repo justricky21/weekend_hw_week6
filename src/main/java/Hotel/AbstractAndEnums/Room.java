@@ -1,4 +1,4 @@
-package Hotel.Abstract;
+package Hotel.AbstractAndEnums;
 
 
 public abstract class Room {
@@ -10,9 +10,5 @@ public abstract class Room {
 
     public int getCapacity() {
         return capacity;
-    }
-
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
     }
 }

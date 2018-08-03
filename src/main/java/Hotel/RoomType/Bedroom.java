@@ -1,7 +1,7 @@
 package Hotel.RoomType;
 
-import Hotel.Abstract.BedroomType;
-import Hotel.Abstract.Room;
+import Hotel.AbstractAndEnums.BedroomType;
+import Hotel.AbstractAndEnums.Room;
 
 public class Bedroom extends Room {
 
@@ -9,5 +9,17 @@ public class Bedroom extends Room {
     public Bedroom(BedroomType type) {
         super(type.getCapacity());
         this.type = type;
+    }
+
+    public BedroomType getType() {
+        return type;
+    }
+
+    public String getReadableType(){
+        return type.getHumanReadable();
+    }
+
+    public int getRate(){
+        return type.getRate();
     }
 }
